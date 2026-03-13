@@ -1,12 +1,5 @@
 {
-  "name": "heiscreative",
-  "version": "1.0.0",
-  "description": "He Is Creative",
-  "main": "index.html",
-  "scripts": {
-    "start": "serve src",
-    "build": "echo 'No build needed'"
-  },
-  "author": "Luiz Felipe",
-  "license": "MIT"
+  "dependencies": {
+    "@vercel/speed-insights": "^1.2.0"
+  }
 }
