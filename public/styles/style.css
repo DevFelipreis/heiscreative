@@ -162,6 +162,18 @@ body.light #stars {
   backdrop-filter: blur(12px);
 }
 
+.theme-toggle .icon-sun {
+  background: #ffffff;
+  color: #000000;
+  border-right: 1px solid #000000;
+}
+
+.theme-toggle .icon-moon {
+  background: #1a1a2e;
+  color: #ffffff;
+  border-right: 1px solid #ffffff;
+}
+
 .theme-toggle span {
   display: flex;
   align-items: center;
@@ -173,9 +185,6 @@ body.light #stars {
   transition: background var(--transition);
 }
 
-.theme-toggle span:hover {
-  background: var(--accent-dim);
-}
 
 /* ========= NAVBAR ========= */
 .navbar {
@@ -197,7 +206,7 @@ body.light #stars {
 
 .navbar-inner {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1920px;
   margin: 0 auto;
   padding: 0 5rem;
   display: flex;
@@ -1322,7 +1331,7 @@ body.light .navbar {
 .behance-grid {
   display: grid;
   grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
-  grid-template-rows: 300px 280px;
+  grid-template-rows: 400px 280px;
   gap: 6px;
   border-radius: 14px;
   overflow: hidden;
@@ -1388,7 +1397,7 @@ body.light .navbar {
 }
 
 .behance-card:hover img {
-  transform: scale(1.08);
+  transform: scale(2.08);
 }
 
 /* Overlay sutil no hover */
