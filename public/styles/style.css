@@ -30,7 +30,7 @@
   --text-muted: #9a8ab5;
 
   --nav-height: 70px;
-  --font-display: 'Gothic', sans-serif;
+  --font-display: 'Poppins', sans-serif;
   --font-body: var(--fonte-principal);
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --border-radius: var(--raio-borda);
@@ -75,6 +75,8 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -266,7 +268,8 @@ body.light .navbar {
 .profile-card {
   position: relative;
   flex-shrink: 0;
-  width: 280px;
+  width: 400px;
+  height: 500px;
   padding: 2.5rem 1.8rem 2rem;
   background: var(--card-bg);
   border: 1px solid var(--accent-dim);
@@ -318,8 +321,8 @@ body.light .navbar {
 
 .avatar-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 1.2rem;
 }
 
@@ -340,8 +343,8 @@ body.light .navbar {
 }
 
 .avatar-placeholder {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2a1a4a, #1a0d38);
   border: 2px solid var(--accent-dim);
