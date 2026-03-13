@@ -1,8 +1,10 @@
 {
+    "public": true,
+    "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/inicio",
-            "destination": "/index.html"
+            "source": "/(.*)",
+            "destination": "/src/$1"
         }
     ]
 }
