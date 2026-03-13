@@ -160,55 +160,45 @@
     const grid = document.getElementById('behance-grid');
     if (!grid) return;
 
-    // --- 4. API BEHANCE (AUTOMATIZAÇÃO) ---
-    // Chamamos a sua API da Vercel que criamos
     fetch('/api/behance')
         .then(response => response.text())
         .then(str => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(str, "text/xml");
             const items = xmlDoc.querySelectorAll("item");
-            const grid = document.getElementById('behance-grid'); // Use o ID que definimos
 
-            if (!grid) return;
-            grid.innerHTML = '';
+            grid.innerHTML = ''; // Limpa o "carregando"
 
             items.forEach(item => {
-                const title = item.querySelector("title").textContent;
                 const link = item.querySelector("link").textContent;
-
-                // O Behance coloca a imagem dentro de um campo <description> com HTML
                 const description = item.querySelector("description").textContent;
 
-                // Criamos um elemento temporário para usar o navegador como "parser" de HTML
-                // Isso é MUITO mais seguro que Regex para pegar o src da imagem
+                // Extrai a imagem da descrição
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = description;
                 const imgTag = tempDiv.querySelector('img');
+                let imgUrl = imgTag ? imgTag.getAttribute('src') : "https://via.placeholder.com/600x600?text=Sem+Imagem";
 
-                // Se encontrar a tag <img>, pega o link. Se não, usa um placeholder.
-                let imgUrl = imgTag ? imgTag.getAttribute('src') : "";
+                // --- CRIAÇÃO DA GALERIA ---
+                // Cria o link que envolve a imagem
+                const anchor = document.createElement('a');
+                anchor.href = link;
+                anchor.target = "_blank"; // Abre em nova aba
+                anchor.className = "behance-item"; // Para você estilizar no CSS
 
-                // Ajuste para garantir que o link da imagem esteja limpo
-                if (imgUrl) {
-                    imgUrl = imgUrl.replace(/&amp;/g, '&');
-                } else {
-                    imgUrl = "https://via.placeholder.com/600x600?text=Projeto+Sem+Capa";
-                }
+                // Cria a imagem
+                const img = document.createElement('img');
+                img.src = imgUrl.replace(/&amp;/g, '&');
+                img.alt = item.querySelector("title").textContent;
+                img.loading = "lazy"; // Boa prática de performance (UX)
 
-                grid.innerHTML += `
-                <a href="${link}" target="_blank" class="behance-card">
-                    <img src="${imgUrl}" alt="${title}" loading="lazy">
-                    <div class="behance-overlay">
-                        <h3>${title}</h3>
-                        <p>UX/UI Design • Portfólio</p>
-                        <span class="ver-projeto-texto">Ver Projeto</span>
-                    </div>
-                </a>`;
+                // Monta a estrutura: grid > a > img
+                anchor.appendChild(img);
+                grid.appendChild(anchor);
             });
         })
         .catch(err => {
-            console.error("Erro ao carregar:", err);
-            if (grid) grid.innerHTML = "<p>Erro ao conectar com o Behance.</p>";
+            console.error("Erro:", err);
+            grid.innerHTML = "<p>Erro ao carregar projetos.</p>";
         });
-});
+})();
