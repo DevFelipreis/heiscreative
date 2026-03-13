@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/inicio",
+            "source": "/public/(:all)",
             "destination": "/index.html"
         }
     ]
