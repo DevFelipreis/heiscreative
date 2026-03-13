@@ -160,7 +160,7 @@
     const grid = document.getElementById('behance-grid');
     if (!grid) return;
 
-    fetch('/api/behance')
+    fetch('https://www.behance.net/lfreis.rss')
         .then(res => res.text())
         .then(str => {
             const parser = new DOMParser();
