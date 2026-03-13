@@ -30,7 +30,7 @@
   --text-muted: #9a8ab5;
 
   --nav-height: 70px;
-  --font-display: 'Poppins', sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
   --font-body: var(--fonte-principal);
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --border-radius: var(--raio-borda);
@@ -75,8 +75,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -86,6 +84,51 @@ a {
 
 ul {
   list-style: none;
+}
+
+/* ========= CONTAINER 1600px ========= */
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  box-sizing: border-box;
+}
+
+.hero>.container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.section-quote>.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  min-height: 60vh;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero>.container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .section-quote>.container {
+    flex-direction: column;
+  }
 }
 
 /* ========= STARS CANVAS ========= */
@@ -105,17 +148,16 @@ body.light #stars {
 /* ========= THEME TOGGLE ========= */
 .theme-toggle {
   position: fixed;
-  right: 1rem;
-  bottom: 1.5rem;
-  top: auto;
-  left: auto;
-  transform: none;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 100;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background: var(--card-bg);
   border: 1px solid var(--accent-dim);
-  border-radius: 50px;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
   overflow: hidden;
   backdrop-filter: blur(12px);
 }
@@ -145,12 +187,29 @@ body.light #stars {
   height: var(--nav-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  justify-content: center;
+  padding: 0;
   background: rgba(14, 10, 20, 0.65);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--accent-dim);
   animation: slideDown 0.6s ease both;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .navbar-inner {
+    padding: 0 2rem;
+  }
 }
 
 body.light .navbar {
@@ -260,16 +319,23 @@ body.light .navbar {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: calc(var(--nav-height) + 2rem) 5rem 3rem;
+  justify-content: center;
+  padding-top: calc(var(--nav-height) + 2rem);
+  padding-bottom: 3rem;
+}
+
+.hero>.container {
+  display: flex;
+  align-items: center;
   gap: 4rem;
+  width: 100%;
 }
 
 /* ========= PROFILE CARD ========= */
 .profile-card {
   position: relative;
   flex-shrink: 0;
-  width: 400px;
-  height: 500px;
+  width: 280px;
   padding: 2.5rem 1.8rem 2rem;
   background: var(--card-bg);
   border: 1px solid var(--accent-dim);
@@ -321,8 +387,8 @@ body.light .navbar {
 
 .avatar-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 1.2rem;
 }
 
@@ -343,8 +409,8 @@ body.light .navbar {
 }
 
 .avatar-placeholder {
-  width: 150px;
-  height: 150px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2a1a4a, #1a0d38);
   border: 2px solid var(--accent-dim);
@@ -548,11 +614,10 @@ body.light .navbar {
 
 /* ========= RESPONSIVE ========= */
 @media (max-width: 900px) {
-  .hero {
+  .hero>.container {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: calc(var(--nav-height) + 2rem) 2rem 3rem;
     gap: 2.5rem;
   }
 
@@ -601,11 +666,15 @@ body.light .navbar {
 .section-quote {
   position: relative;
   z-index: 1;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.section-quote>.container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  padding: 6rem 5rem;
   min-height: 60vh;
 }
 
@@ -660,7 +729,8 @@ body.light .navbar {
 .section-portfolio {
   position: relative;
   z-index: 1;
-  padding: 4rem 5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .portfolio-grid {
@@ -821,7 +891,8 @@ body.light .navbar {
 .section-press {
   position: relative;
   z-index: 1;
-  padding: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .press-layout {
@@ -965,7 +1036,8 @@ body.light .navbar {
 .section-resume {
   position: relative;
   z-index: 1;
-  padding: 5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .resume-grid {
@@ -1190,15 +1262,7 @@ body.light .navbar {
 /* ========= RESPONSIVE ========= */
 @media (max-width: 1024px) {
 
-  .section-quote,
-  .section-portfolio,
-  .section-press,
-  .section-resume,
-  .section-cta {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
+  /* horizontal padding handled by .container */
   .quote-image {
     width: 280px;
     height: 320px;
@@ -1253,21 +1317,64 @@ body.light .navbar {
   font-size: 0.9rem;
 }
 
+/* ── Editorial grid: 2 linhas, 4 colunas, cards variados ── */
 .behance-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 8px;
-  border-radius: 12px;
+  grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+  grid-template-rows: 300px 280px;
+  gap: 6px;
+  border-radius: 14px;
   overflow: hidden;
+}
+
+/* Padrão de posicionamento — replica a referência visual */
+.behance-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+/* tall esquerda */
+.behance-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.behance-card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.behance-card:nth-child(4) {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.behance-card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.behance-card:nth-child(6) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.behance-card:nth-child(7) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+/* Esconde cards extras além dos 7 */
+.behance-card:nth-child(n+8) {
+  display: none;
 }
 
 .behance-card {
   display: block;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
-  border-radius: 0;
   cursor: pointer;
+  background: var(--bg2);
 }
 
 .behance-card img {
@@ -1275,7 +1382,7 @@ body.light .navbar {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
@@ -1283,18 +1390,21 @@ body.light .navbar {
   transform: scale(1.08);
 }
 
+/* Overlay sutil no hover */
 .behance-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 5, 60, 0.72);
+  background: linear-gradient(to top,
+      rgba(20, 5, 40, 0.85) 0%,
+      rgba(20, 5, 40, 0.3) 50%,
+      transparent 100%);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.2rem 1.4rem;
   opacity: 0;
   transition: opacity 0.35s ease;
-  padding: 1.5rem;
-  text-align: center;
 }
 
 .behance-card:hover .behance-overlay {
@@ -1303,28 +1413,35 @@ body.light .navbar {
 
 .behance-overlay h3 {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   line-height: 1.3;
 }
 
 .behance-overlay p {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.75rem;
-  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  margin-bottom: 0.7rem;
 }
 
 .ver-projeto-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 1.5px solid var(--accent);
   color: var(--accent);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  padding: 0.4rem 1.2rem;
+  padding: 0.35rem 1rem;
   border-radius: 50px;
   transition: background var(--transition), color var(--transition);
+}
+
+.ver-projeto-btn::after {
+  content: '→';
+  font-size: 0.8rem;
 }
 
 .behance-card:hover .ver-projeto-btn {
@@ -1332,9 +1449,96 @@ body.light .navbar {
   color: #ffffff;
 }
 
+/* Tablet */
+@media (max-width: 1024px) {
+  .behance-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-rows: 260px 240px 220px;
+  }
+
+  .behance-card:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .behance-card:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .behance-card:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .behance-card:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .behance-card:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .behance-card:nth-child(6) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .behance-card:nth-child(7) {
+    grid-column: 2 / 4;
+    grid-row: 3;
+  }
+
+  .behance-card:nth-child(n+8) {
+    display: none;
+  }
+}
+
+/* Mobile */
 @media (max-width: 600px) {
   .behance-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 180px);
+  }
+
+  .behance-card:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .behance-card:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .behance-card:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .behance-card:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .behance-card:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .behance-card:nth-child(6) {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .behance-card:nth-child(7) {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .behance-card:nth-child(n+8) {
+    display: none;
   }
 }
