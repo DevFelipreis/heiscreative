@@ -1,0 +1,12 @@
+{
+  "name": "heiscreative",
+  "version": "1.0.0",
+  "description": "Meu portfólio de UX Design e Desenvolvimento",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve src",
+    "build": "echo 'No build needed'"
+  },
+  "author": "Luiz Felipe",
+  "license": "MIT"
+}
