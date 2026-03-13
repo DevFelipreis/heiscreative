@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
     const user = "lfreis";
-    const url = `https://www.behance.net/${user}.rss`;
+    const url = `https://www.behance.net/lfreis.rss`;
 
     try {
         const response = await fetch(url);
