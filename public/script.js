@@ -116,7 +116,7 @@
 
 /* ========= TYPEWRITER FOR HERO SUBTITLE (optional flavor) ========= */
 (function initTypewriter() {
-    const phrases = ['& propósitos', '& criatividade', '& intenção', '& impacto'];
+    const phrases = ['usable', 'responsive', 'accessible', 'performant'];
     const purposeEl = document.querySelector('.purpose');
     if (!purposeEl) return;
 

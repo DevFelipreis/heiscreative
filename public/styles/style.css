@@ -14,6 +14,7 @@
   --cor-cinza: #999999;
   --cor-edicao: #aaaaaa;
   --fonte-principal: 'Poppins', sans-serif;
+  --fonte-body: 'Poppins', sans-serif;
   --espaco-padrao: 1.5rem;
   --raio-borda: 10px;
 
@@ -30,8 +31,8 @@
   --text-muted: #9a8ab5;
 
   --nav-height: 70px;
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: var(--fonte-principal);
+  --font-display: var(--fonte-principal);
+  --font-body: var(--fonte-body);
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --border-radius: var(--raio-borda);
   --spacing: var(--espaco-padrao);
@@ -396,8 +397,8 @@ body.light .navbar {
 
 .avatar-wrap {
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto 1.2rem;
 }
 
@@ -418,8 +419,8 @@ body.light .navbar {
 }
 
 .avatar-placeholder {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: linear-gradient(135deg, #2a1a4a, #1a0d38);
   border: 2px solid var(--accent-dim);
@@ -689,8 +690,9 @@ body.light .navbar {
 
 .quote-text {
   flex: 1;
-  max-width: 600px;
+  max-width: 800px;
   animation: fadeSlideUp 0.8s ease both;
+  font-weight: 500;
 }
 
 .quote-text h2 {
@@ -699,12 +701,14 @@ body.light .navbar {
   font-weight: 300;
   line-height: 1.55;
   margin-bottom: 1.2rem;
+  font-weight: 500;
 }
 
 .quote-text p {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.7;
+  font-weight: 500;
 }
 
 .quote-image {
@@ -940,7 +944,7 @@ body.light .navbar {
 }
 
 .xd-avatar {
-  background: #ff61f6;
+  background: #0044ff;
   color: white;
 }
 
