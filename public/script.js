@@ -160,49 +160,55 @@
     const grid = document.getElementById('behance-grid');
     if (!grid) return;
 
-    fetch('api/behance')
-        .then(res => res.text())
+    // --- 4. API BEHANCE (AUTOMATIZAÇÃO) ---
+    // Chamamos a sua API da Vercel que criamos
+    fetch('/api/behance')
+        .then(response => response.text())
         .then(str => {
             const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(str, 'text/xml');
-            const items = xmlDoc.querySelectorAll('item');
+            const xmlDoc = parser.parseFromString(str, "text/xml");
+            const items = xmlDoc.querySelectorAll("item");
+            const grid = document.getElementById('behance-grid'); // Use o ID que definimos
 
-            if (!items.length) {
-                grid.innerHTML = '<p class="behance-loading">Nenhum projeto encontrado.</p>';
-                return;
-            }
-
+            if (!grid) return;
             grid.innerHTML = '';
+
             items.forEach(item => {
-                const title = item.querySelector('title')?.textContent || '';
-                const link = item.querySelector('link')?.textContent || '#';
+                const title = item.querySelector("title").textContent;
+                const link = item.querySelector("link").textContent;
 
-                // Parse imagem do campo description (igual ao seu script original)
-                const desc = item.querySelector('description')?.textContent || '';
+                // O Behance coloca a imagem dentro de um campo <description> com HTML
+                const description = item.querySelector("description").textContent;
+
+                // Criamos um elemento temporário para usar o navegador como "parser" de HTML
+                // Isso é MUITO mais seguro que Regex para pegar o src da imagem
                 const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = desc;
+                tempDiv.innerHTML = description;
                 const imgTag = tempDiv.querySelector('img');
-                let imgUrl = imgTag ? imgTag.getAttribute('src') : '';
-                if (imgUrl) imgUrl = imgUrl.replace(/&amp;/g, '&');
-                else imgUrl = 'https://via.placeholder.com/600x600?text=Sem+Capa';
 
-                const card = document.createElement('a');
-                card.href = link;
-                card.target = '_blank';
-                card.className = 'behance-card';
-                card.rel = 'noopener noreferrer';
-                card.innerHTML = `
-          <img src="${imgUrl}" alt="${title}" loading="lazy" />
-          <div class="behance-overlay">
-            <h3>${title}</h3>
-            <p>UX/UI Design · Portfólio</p>
-            <span class="ver-projeto-btn">Ver Projeto</span>
-          </div>`;
-                grid.appendChild(card);
+                // Se encontrar a tag <img>, pega o link. Se não, usa um placeholder.
+                let imgUrl = imgTag ? imgTag.getAttribute('src') : "";
+
+                // Ajuste para garantir que o link da imagem esteja limpo
+                if (imgUrl) {
+                    imgUrl = imgUrl.replace(/&amp;/g, '&');
+                } else {
+                    imgUrl = "https://via.placeholder.com/600x600?text=Projeto+Sem+Capa";
+                }
+
+                grid.innerHTML += `
+                <a href="${link}" target="_blank" class="behance-card">
+                    <img src="${imgUrl}" alt="${title}" loading="lazy">
+                    <div class="behance-overlay">
+                        <h3>${title}</h3>
+                        <p>UX/UI Design • Portfólio</p>
+                        <span class="ver-projeto-texto">Ver Projeto</span>
+                    </div>
+                </a>`;
             });
         })
         .catch(err => {
-            console.error('Behance load error:', err);
-            grid.innerHTML = '<p class="behance-loading">Erro ao carregar projetos.</p>';
+            console.error("Erro ao carregar:", err);
+            if (grid) grid.innerHTML = "<p>Erro ao conectar com o Behance.</p>";
         });
-})();
+});
