@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luiz Felipe Reis — Design & Propósitos</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Stars background canvas -->
+  <canvas id="stars"></canvas>
+
+  <!-- Theme toggle -->
+  <div class="theme-toggle" id="themeToggle">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon">🌙</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-lang">
+      <a href="#" class="active">PT</a>
+      <span>|</span>
+      <a href="#">EN</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
+      <li><a href="#freebies">Freebies</a></li>
+      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="#" class="social-icon" aria-label="Behance">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M7.5 11.5c.69 0 1.25-.56 1.25-1.25S8.19 9 7.5 9H5v2.5h2.5zm.5 2H5V16h3c.83 0 1.5-.67 1.5-1.5S8.83 13.5 8 13.5zm5.5-4.5h4v1h-4v-1zm-3-5H2v14h9c2.21 0 4-1.79 4-4 0-1.3-.63-2.46-1.6-3.2.47-.6.75-1.36.75-2.18C14.15 5.46 12.8 4 11 4zm8.5 6c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+
+    <!-- Profile Card -->
+    <div class="profile-card">
+      <div class="card-glow"></div>
+      <div class="avatar-wrap">
+        <div class="avatar-ring"></div>
+        <div class="avatar-placeholder">
+          <img src="./assets/perfil.jpg" alt="Luiz Felipe Reis" />
+        </div>
+      </div>
+      <h2 class="card-name">Luiz Felipe Reis</h2>
+      <p class="card-desc">Você busca só mais um designer ou uma pessoa apaixonada por seu trabalho e ideais?</p>
+      <span class="card-tag">UI/UX</span>
+      <a href="#contato" class="card-btn">Vamos conversar</a>
+      <div class="card-socials">
+        <a href="#" aria-label="Behance">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.5 11.5c.69 0 1.25-.56 1.25-1.25S8.19 9 7.5 9H5v2.5h2.5zm.5 2H5V16h3c.83 0 1.5-.67 1.5-1.5S8.83 13.5 8 13.5zm5.5-4.5h4v1h-4v-1zm-3-5H2v14h9c2.21 0 4-1.79 4-4 0-1.3-.63-2.46-1.6-3.2.47-.6.75-1.36.75-2.18C14.15 5.46 12.8 4 11 4zm8.5 6c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+          </svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Text -->
+    <div class="hero-text">
+      <div class="hero-headline">
+        <span class="word-design" data-text="design">design</span>
+      </div>
+      <div class="hero-sub">
+        <span class="amp">&amp;</span>
+        <span class="purpose">propósitos</span>
+      </div>
+      <div class="hero-socials">
+        <a href="#" class="hs-icon" aria-label="Behance">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.5 11.5c.69 0 1.25-.56 1.25-1.25S8.19 9 7.5 9H5v2.5h2.5zm.5 2H5V16h3c.83 0 1.5-.67 1.5-1.5S8.83 13.5 8 13.5zm5.5-4.5h4v1h-4v-1zm-3-5H2v14h9c2.21 0 4-1.79 4-4 0-1.3-.63-2.46-1.6-3.2.47-.6.75-1.36.75-2.18C14.15 5.46 12.8 4 11 4zm8.5 6c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+          </svg>
+        </a>
+        <a href="#" class="hs-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg>
+        </a>
+        <a href="#" class="hs-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+          </svg>
+        </a>
+        <a href="#" class="hs-icon" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Quote / Story -->
+  <section class="section-quote" id="sobre">
+    <div class="quote-text">
+      <h2>Não sabiam ao certo se era o trabalho<br>que fazia ela sorrir, ou se era <span class="accent">o sorriso<br>que
+          movia o trabalho dela.</span></h2>
+      <p>Tudo o que sabiam é que no fim do dia <strong>um tal de propósito falava mais alto.</strong></p>
+    </div>
+    <div class="quote-image">
+      <div class="quote-img-inner"></div>
+    </div>
+  </section>
+
+  <!-- Section 3: Portfolio Behance (auto) -->
+  <section class="section-portfolio" id="portfolio">
+    <h2 class="section-title">Uma seleção incrível de <span class="accent">projetos que eu amei fazer</span></h2>
+    <div class="behance-grid" id="behance-grid">
+      <p class="behance-loading">Carregando projetos do Behance...</p>
+    </div>
+  </section>
+
+  <!-- Section 4: Press / Blog highlights -->
+  <section class="section-press" id="blog">
+    <h2 class="section-title">Você viu o que <span class="accent">andam falando por aí?</span></h2>
+    <div class="press-layout">
+      <!-- Feature card -->
+      <div class="press-feature">
+        <div class="press-source">
+          <div class="press-avatar xd-avatar">Xd</div>
+          <div>
+            <strong>ADOBE XD ✓</strong>
+            <p>Posted on <a href="#">Adobe XD Official Twitter</a></p>
+          </div>
+        </div>
+        <p class="press-body">Freelance UX/UI designer <a href="#" class="accent-link">@theisacreative</a> has come up
+          with a concept to redesign the site for the 🇧🇷 Brazilian income tax system. What a fantastic, well-thought
+          out project, Luiz Felipe! <a href="#" class="accent-link">https://adobe.ly/3PnLFuQ</a> #AdobeXD</p>
+        <div class="press-mockup">
+          <div class="press-mockup-inner">
+            <div class="pm-header"><span>Acessibilidade</span></div>
+            <div class="pm-rows">
+              <div class="pm-row"></div>
+              <div class="pm-row"></div>
+              <div class="pm-row"></div>
+              <div class="pm-row short"></div>
+              <div class="pm-row"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog sidebar -->
+      <div class="press-sidebar">
+        <p class="sidebar-label">DESTAQUES EM BLOGS</p>
+        <ul class="blog-list">
+          <li>
+            <a href="#">Consider Accessibility for any user interface with this free kit</a>
+            <span>Adobe Creative Cloud</span>
+          </li>
+          <li>
+            <a href="#">Destaque em Google lança 31 novos emojis</a>
+            <span>Linkedin Noticias</span>
+          </li>
+          <li>
+            <a href="#">Designer cria "Gerador de Diversidade" e você precisa testar (boatos que é viciante)</a>
+            <span>Designmador</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Projects / Experience / Posts list -->
+  <section class="section-resume" id="freebies">
+    <h2 class="section-title small">Boatos que eu também ando<br><span class="accent">fazendo vários projetinhos...
+        s2</span></h2>
+    <div class="resume-grid">
+      <div class="resume-col">
+        <h3>PROJETOS</h3>
+        <ul class="resume-list">
+          <li><a href="#">Bootcampinho UI/UX <em>Bootcamp Gratuito de UI/UX Design</em></a><span>2022</span></li>
+          <li><a href="#">Relayout do Imposto de Renda (IRPF) <em>Proposta de UI/UX Design</em></a><span>2022</span>
+          </li>
+          <li><a href="#">Curso Photoshop Susse <em>Aprenda Photoshop de forma fácil e
+                divertida</em></a><span>2021</span></li>
+          <li><a href="#">UI Accessibility Kit <em>UI Kit gratuito para Adobe XD</em></a><span>2020</span></li>
+          <li><a href="#">Quack Redação <em>Programa voluntário</em></a><span class="bold-date">Desde 2016</span></li>
+        </ul>
+      </div>
+      <div class="resume-col">
+        <h3>EXPERIÊNCIAS</h3>
+        <ul class="resume-list">
+          <li><a href="#">Aceleração de Creators do LinkedIn <em>Uma das 100 brasileiras
+                selecionados</em></a><span>2022</span></li>
+          <li><a href="#">Adobe XD Instructor <em>Treinamentos enterprise em parceria com a
+                Adobe</em></a><span>2022</span></li>
+          <li><a href="#">Premiere Pro Creator Camp <em>Bootcamp criativo promovido pela Adobe</em></a><span>2021</span>
+          </li>
+          <li><a href="#">Adobe Creative Community Fund <em>Project Grant Recipient</em></a><span>2020</span></li>
+          <li><a href="#">MBA em Gestão de Marketing <em>Universidade Positivo</em></a><span>2017</span></li>
+        </ul>
+      </div>
+      <div class="resume-col">
+        <h3>ÚLTIMOS POSTS</h3>
+        <ul class="resume-list">
+          <li><a href="#">E se o Sistema de Imposto de Renda fosse pensado nas pessoas?</a><span>2022</span></li>
+          <li><a href="#">Matriz impacto x esforço x amor: como priorizar tarefas sem prejudicar
+              pessoas</a><span>2022</span></li>
+          <li><a href="#">Nova rede social, Design Systems e o que o Kano tem a ver com isso | Dininhos do Design
+              #03</a><span>2021</span></li>
+          <li><a href="#">Robotização do design, acessibilidade e o novo Windows | Dininhos do Design
+              #02</a><span>2021</span></li>
+          <li><a href="#">Design System, acessibilidade e mais! | Dininhos do Design #01</a><span>2021</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: CTA + Footer -->
+  <section class="section-cta" id="contato">
+    <div class="cta-top">
+      <p>O próximo projeto pode ser o seu.</p>
+      <h2 class="accent">Vamos conversar? :)</h2>
+      <a href="#" class="card-btn cta-btn">Quero conversar</a>
+    </div>
+
+    <div class="cta-bottom">
+      <p>Hey! Espere aí. Confira conteúdos<br><span class="accent">super legais e gratuitos. :)</span></p>
+      <div class="cta-links">
+        <a href="#" class="cta-outline-btn">Blog da Luiz Felipe</a>
+        <a href="#" class="cta-outline-btn">Materiais gratuitos</a>
+      </div>
+    </div>
+
+    <div class="footer-socials">
+      <a href="#" class="fs-btn"><span class="fs-icon yt-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z" />
+          </svg></span>Inscrever no YouTube</a>
+      <a href="#" class="fs-btn"><span class="fs-icon ig-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+          </svg></span>Seguir no Insta</a>
+      <a href="#" class="fs-btn"><span class="fs-icon li-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+          </svg></span>Conectar no Linkedin</a>
+      <a href="#" class="fs-btn"><span class="fs-icon be-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7.5 11.5c.69 0 1.25-.56 1.25-1.25S8.19 9 7.5 9H5v2.5h2.5zm.5 2H5V16h3c.83 0 1.5-.67 1.5-1.5S8.83 13.5 8 13.5zm5.5-4.5h4v1h-4v-1zm-3-5H2v14h9c2.21 0 4-1.79 4-4 0-1.3-.63-2.46-1.6-3.2.47-.6.75-1.36.75-2.18C14.15 5.46 12.8 4 11 4zm8.5 6c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+          </svg></span>Seguir no Behance</a>
+      <a href="#" class="fs-btn"><span class="fs-icon tg-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
+          </svg></span>Seguir no Telegram</a>
+      <a href="#" class="fs-btn"><span class="fs-icon tw-bg"><svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+          </svg></span>Seguir no Twitter</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-name">Luiz Felipe Reis</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-role">UI/UX Designer</span>
+      <span class="footer-sep">·</span>
+      <a href="/cdn-cgi/l/email-protection#c5aaac85a9b0acbfa3a0a9acb5a6b7a0acb6eba6aaa8" class="footer-email"><span
+          class="__cf_email__"
+          data-cfemail="57383e173b223e2d31323b3e273425323e247934383a">[email&#160;protected]</span></a>
+    </div>
+    <p class="footer-copy">© 2024 Luiz Felipe Reis. Feito com <span class="accent">♥</span> e propósito.</p>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
