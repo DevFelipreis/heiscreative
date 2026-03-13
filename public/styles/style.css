@@ -736,10 +736,11 @@ body.light .navbar {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 180px 200px;
+  grid-template-rows: 300px 200px;
   gap: 6px;
   border-radius: 12px;
   overflow: hidden;
+  zoom: 1;
 }
 
 .pg-item {
