@@ -1335,7 +1335,7 @@ body.light .navbar {
 .behance-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 480px 280px;
+  grid-template-rows: repeat(2, 280px);
   gap: 0;
   border-radius: 14px;
   overflow: hidden;
@@ -1352,7 +1352,7 @@ body.light .navbar {
   grid-row: auto;
 }
 
-.behance-card:nth-child(n+9) {
+.behance-card:nth-child(n+7) {
   display: none;
 }
 
@@ -1374,7 +1374,7 @@ body.light .navbar {
 }
 
 .behance-card:hover img {
-  transform: scale(2.08);
+  transform: scale(1.08);
 }
 
 /* Overlay sutil no hover */
@@ -1479,6 +1479,28 @@ body.light .navbar {
   }
 
   .behance-card:nth-child(n+8) {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .behance-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .behance-card:nth-child(n+7) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .behance-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 200px);
+  }
+
+  .behance-card:nth-child(n+7) {
     display: none;
   }
 }
