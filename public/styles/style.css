@@ -1339,7 +1339,7 @@ body.light .navbar {
   gap: 0;
   border-radius: 14px;
   overflow: hidden;
-  max-width: 1250px;
+  max-width: 1200px;
   /* limita largura */
   margin: 0 auto;
   /* centraliza */
