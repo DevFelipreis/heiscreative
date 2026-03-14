@@ -1332,17 +1332,20 @@ body.light .navbar {
 }
 
 /* ── Editorial grid: 2 linhas, 4 colunas, cards variados ── */
-.behance-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 320px);
-  gap: 0;
-  border-radius: 14px;
+.behance-card {
+  display: block;
+  position: relative;
   overflow: hidden;
-  max-width: 1100px;
-  /* limita largura */
-  margin: 0 auto;
-  /* centraliza */
+  cursor: pointer;
+  background: var(--bg2);
+  height: 100%;
+  outline: 3px solid transparent;
+  outline-offset: -3px;
+  transition: outline-color 0.3s ease;
+}
+
+.behance-card:hover {
+  outline-color: var(--accent);
 }
 
 .behance-card:nth-child(1),
