@@ -1386,7 +1386,7 @@ body.light .navbar {
 }
 
 .behance-card:hover img {
-  transform: scale(1.08);
+  outline-color: var(--accent);
 }
 
 /* Overlay sutil no hover */
